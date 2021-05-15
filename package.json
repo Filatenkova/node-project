@@ -1,12 +1,20 @@
 {
   "name": "node-project",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Natalya Filatenkova",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Filatenkova/node-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Filatenkova/node-project/issues"
+  },
+  "homepage": "https://github.com/Filatenkova/node-project#readme",
   "description": ""
 }
