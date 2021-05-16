@@ -16,17 +16,23 @@
 <body>
     <section class="u-align-center-xs u-clearfix u-palette-3-dark-3 u-valign-middle-xl u-section-1" src="" id="carousel_13c7">
         <div class="u-expanded-width u-palette-3-base u-shape u-shape-rectangle u-shape-1"></div>
-        <img class="u-expand-resize u-image u-image-1 icon-image" src="./images/as-min.jpg">
+        <img class="u-expand-resize u-image u-image-1" src="./images/as-min.jpg">
         <div class="u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-container-style u-group u-white u-group-1">
             <div class="u-container-layout u-valign-middle u-container-layout-1">
                 <h1 class="u-custom-font u-font-oswald u-text u-text-palette-3-base u-title u-text-1">Изучение NODE JS</h1>
                 <p class="u-large-text u-text u-text-variant u-text-2">Загрузка файлов на сервер.</p>
-                <p><input id="upload" type="file"></p>
-                <div>
-                    <input name="image" type="text" placeholder="Переименовать">
-                    <input type="hidden" name="imagename" value="">
-                </div>
-                <label for="upload" class="u-active-palette-5-dark-1 u-btn u-button-style u-hover-palette-5-dark-1 u-palette-3-light-1 u-btn-2" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">Загрузить</label>
+                <img src="" alt="" class="icon-image">
+                <form>
+                    <div>
+                        <input id="upload" type="file">
+                    </div>
+                    <div>
+                        <input name="image" type="text" placeholder="Переименовать">
+                        <input type="hidden" name="imagename" value="">
+                        <input type="text" name="username" value="">
+                    </div>
+                    <button class="button">Загрузить</button>
+                </form>
             </div>
         </div>
     </section>

@@ -16,5 +16,8 @@
     "url": "https://github.com/Filatenkova/node-project/issues"
   },
   "homepage": "https://github.com/Filatenkova/node-project#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "sequelize": "^6.6.2"
+  }
 }

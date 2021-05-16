@@ -1,15 +1,28 @@
 const http = require('http');
 const path = require('path');
 const fs = require('fs');
+const db = require('./db');
+const Image = db.image;
 
 const httpServer = http.createServer((req, res) => {
     console.log(`request: ${req.url}`);
     if (req.url === '/') {
         sendResp('index.html', 'text/html', res);
     } else if (/\/uploads\/[^\/]+$/.test(req.url) && req.method === 'POST') {
-
-    } else {
-        sendResp(req.url, getContentType(req.url),res);
+        console.log('Upload files');
+        saveUploadFiles(req, res);
+    } else if (req.url === '/save-form') {
+        let body = '';
+        req.on('data', chunk => {
+            body += chunk.toString();
+        });
+        req.on('end', () => {
+            console.log(body);
+            writeToDb(body, res);
+        });
+        // npm install sequelize
+    }else {
+        sendResp(req.url, getContentType(req.url), res);
     }
 }).listen(3000);
 
@@ -42,4 +55,24 @@ function getContentType(url) {
         default:
             return 'application/octet-stream';
     }
+}
+
+function saveUploadFiles(req, res) {
+
+}
+
+function writeToDb(data, res) {
+    data = JSON.parse(data, true);
+    Image.create({
+        image_name: data['input-1'],
+        file_name: data['input-2'],
+        user_name: data['input-3'],
+    })
+    .then(result => {
+        console.log(result);
+        res.end('Ok');
+    }).catch(err => {
+        console.log(err);
+        res.end('Error');
+    })
 }

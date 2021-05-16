@@ -25,4 +25,25 @@ function callBackFunction(data) {
     document.querySelector('input[name="imagename"]').value = data;
 }
 
+function submitForm(event) {
+    event.preventDefault();
+    let form = document.querySelector('form').elements;
+    fetch('/save-form', {
+        method: 'POST',
+        headers: {
+            'Content-Type' : 'application/x-www-form-urlencoded'
+        },
+        body: JSON.stringify({
+            "input-0" : form[0].value,
+            "input-1" : form[1].value,
+            "input-2" : form[2].value,
+            "input-3" : form[3].value,
+        })
+            .then(res => res.text())
+            .then(res => console.log(res))
+
+    })
+}
+
 document.querySelector('#upload').addEventListener('change', uploadFile);
+document.querySelector('form').addEventListener('submit', submitForm);
